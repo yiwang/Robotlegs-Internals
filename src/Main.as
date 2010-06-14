@@ -30,6 +30,18 @@ package
 			var spr4:Sprite = injector.getInstance(Sprite);
 			
 			trace('identical=' + (spr3 == spr4));
+			
+			//“When I ask for a Sprite, give me this one.”
+			
+			var spr5:Sprite = new Sprite();
+			
+			// Map as Value
+			injector.mapValue(Sprite, spr5);
+			
+			var spr6:Sprite = injector.getInstance(Sprite);
+			var spr7:Sprite = injector.getInstance(Sprite);
+			
+			trace('identical=' + (spr5 == spr6 && spr6 == spr7 && spr7 == spr5));
 		}
 	}
 }
