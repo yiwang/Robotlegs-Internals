@@ -3,6 +3,8 @@ package
 	import flash.display.Sprite;
 	import org.robotlegs.adapters.SwiftSuspendersInjector;
 	import org.robotlegs.core.IInjector;
+	import flash.display.DisplayObject;
+	import flash.display.MovieClip;
 	
 	public class Main extends Sprite
 	{
@@ -42,6 +44,17 @@ package
 			var spr7:Sprite = injector.getInstance(Sprite);
 			
 			trace('identical=' + (spr5 == spr6 && spr6 == spr7 && spr7 == spr5));
+			
+			//“When I ask for a DisplayObject, give me a MovieClip. The same one, every time.”
+			
+			// Map Singleton Of
+			injector.mapSingletonOf(DisplayObject, MovieClip);
+			
+			var obj1:DisplayObject = injector.getInstance(DisplayObject);
+			var obj2:DisplayObject = injector.getInstance(DisplayObject);
+			
+			trace('isMovieClip=' + (obj1 is MovieClip));
+			trace('isMovieClip=' + (obj2 is MovieClip));
 		}
 	}
 }
