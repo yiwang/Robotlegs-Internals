@@ -20,7 +20,16 @@ package
 			var spr2:Sprite = injector.getInstance(Sprite);
 			
 			// Compare them
-			trace('identical=' + (spr1 == spr2));	
+			trace('identical=' + (spr1 == spr2));
+			
+			//“When I ask for a Sprite, give me a Sprite. A new one, every time.”
+			// Map as Class
+			injector.mapClass(Sprite, Sprite);
+			
+			var spr3:Sprite = injector.getInstance(Sprite);
+			var spr4:Sprite = injector.getInstance(Sprite);
+			
+			trace('identical=' + (spr3 == spr4));
 		}
 	}
 }
