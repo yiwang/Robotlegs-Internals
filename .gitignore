@@ -1,0 +1,6 @@
+bin-debug/*
+html-template/*
+*.swf
+.*
+*~
+!.gitignore
